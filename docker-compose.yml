@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+    apigateway:
+        container_name: apigateway
+        restart: always
+        build: ./apigateway
+        environment:
+            - PORT=7000
+        ports:
+            - "7000:7000"
+    scheduler:
+        container_name: scheduler
+        restart: always
+        build: ./backend
+        environment:
+            - PORT=9000
+        ports:
+            - "9000:9000"
